@@ -22,8 +22,7 @@
         </div>
     </header>
     <div class="container">
-        <h1>YOU ARE NOW VIEWING CARDS</h1>
-        <a href="/cards/new">Create New Card</a>
+        <a class="btn btn-primary my-2" href="/cards/new">Create New Card</a>
         <table class="table table-sm table-hover">
             <thead>
                 <tr>
@@ -35,10 +34,9 @@
             <tbody>
                 {% for card in cards %}
                 <tr>
-                    <td>{{ card.name }}</td>
+                    <td><a class="text-decoration-none" href=" /cards/{{ card.id }}">{{ card.name }}</a></td>
                     <td>{{ card.type }}</td>
                     <td>{{ card.value }}</td>
-                    <td><a href="/cards/{{ card.id }}">View</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
