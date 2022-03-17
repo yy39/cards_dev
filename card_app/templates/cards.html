@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,25 +10,40 @@
 </head>
 
 <body>
-    <h1>YOU ARE NOW VIEWING CARDS</h1>
-    <a href="/cards/new">Create New Card</a>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Value</th>
-        </tr>
-        {% for card in cards %}
-        <tr>
-            <td>{{ card.name }}</td>
-            <td>{{ card.type }}</td>
-            <td>{{ card.value }}</td>
-            <td><a href="/cards/show/{{ card.id }}">View</a></td>
-        </tr>
-        {% endfor %}
-    </table>
-    <a href="/">Home</a>
-    <a href='/stacks'>View Stacks</a>
+    <header class="p-3 bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap">
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a class="nav-link text-light" href='/'>Home</a></li>
+                    <li><a class="nav-link text-light" href='/cards'>Cards</a></li>
+                    <li><a class="nav-link text-light" href='/stacks'>Stacks</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <h1>YOU ARE NOW VIEWING CARDS</h1>
+        <a href="/cards/new">Create New Card</a>
+        <table class="table table-sm table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for card in cards %}
+                <tr>
+                    <td>{{ card.name }}</td>
+                    <td>{{ card.type }}</td>
+                    <td>{{ card.value }}</td>
+                    <td><a href="/cards/{{ card.id }}">View</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>

@@ -28,7 +28,7 @@ def show_cards():
     return render_template('cards.html', cards=cards)
 
 
-@app.route('/cards/show/<int:id>')
+@app.route('/cards/<int:id>')
 def show_card(id):
     card = Card.get_card({"id": id})
     return render_template('show_card.html', card=card)

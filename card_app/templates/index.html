@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +10,20 @@
 </head>
 
 <body>
-    <h1>CARD APP TESTING</h1>
-    <a href='/cards'>View Cards</a>
-    <a href='/stacks'>View Stacks</a>
+    <header class="p-3 bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap">
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a class="nav-link text-light" href='/'>Home</a></li>
+                    <li><a class="nav-link text-light" href='/cards'>Cards</a></li>
+                    <li><a class="nav-link text-light" href='/stacks'>Stacks</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <h1>CARD APP TESTING</h1>
+    </div>
 </body>
 
 </html>
