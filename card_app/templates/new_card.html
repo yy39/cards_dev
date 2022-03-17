@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,17 +10,33 @@
 </head>
 
 <body>
-    <h1>YOU ARE NOW MAKING A NEW CARD</h1>
-    <form action="/cards/create" method="post">
-        <label for="name">Card Name:</label>
-        <input type="text" name="name">
-        <label for="type">Card Type:</label>
-        <input type="text" name="type">
-        <label for="value">Card Value:</label>
-        <input type="text" name="value">
-        <input type="submit" value="Create Card">
-    </form>
-    <a href="/">Home</a>
+    <header class="p-3 bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap">
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a class="nav-link text-light" href='/'>Home</a></li>
+                    <li><a class="nav-link text-light" href='/cards'>Cards</a></li>
+                    <li><a class="nav-link text-light" href='/stacks'>Stacks</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Create a Card</h1>
+        <form class="d-flex flex-column" action="/cards/create" method="post">
+            <label class="form-label" for="name">Name</label>
+            <input class="form-control" type="text" name="name">
+            <label class="form-label" for="type">Type</label>
+            <select class="form-select" name="type">
+                <option value="1">One</option>
+            </select>
+            <label class="form-label" for="value">Value</label>
+            <input class="form-control" type="text" name="value">
+            <div class="my-2">
+                <input class="btn btn-primary" type="submit" value="Create">
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>
