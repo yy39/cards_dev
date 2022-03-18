@@ -1,3 +1,3 @@
 # cards_dev
 
-under construction
+uses pipenv, flask, pymysql and bootstrap
