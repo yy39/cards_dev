@@ -11,6 +11,7 @@ class Card:
     @classmethod
     def create_card(cls, data):
         query = 'INSERT INTO cards (type, name, value) VALUES (%(type)s, %(name)s, %(value)s);'
+        flash('Card successfully created')
         return queryMySQL(query, data)
 
     @classmethod

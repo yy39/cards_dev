@@ -17,11 +17,22 @@
                     <li><a class="nav-link text-light" href='/'>Home</a></li>
                     <li><a class="nav-link text-light" href='/cards'>Cards</a></li>
                     <li><a class="nav-link text-light" href='/stacks'>Stacks</a></li>
+                    <li><a class="nav-link text-light" href='/users'>Users</a></li>
                 </ul>
             </div>
         </div>
     </header>
     <div class="container">
+        <h1>Viewing Cards</h1>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class="list-group">
+            {% for message in messages %}
+            <li class="list-group-item border-success text-success">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
         <a class="btn btn-primary my-2" href="/cards/new">Create New Card</a>
         <table class="table table-sm table-hover">
             <thead>
@@ -34,7 +45,7 @@
             <tbody>
                 {% for card in cards %}
                 <tr>
-                    <td><a class="text-decoration-none" href=" /cards/{{ card.id }}">{{ card.name }}</a></td>
+                    <td><a class="text-decoration-none" href="/cards/{{ card.id }}">{{ card.name }}</a></td>
                     <td>{{ card.type }}</td>
                     <td>{{ card.value }}</td>
                 </tr>

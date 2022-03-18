@@ -27,7 +27,8 @@ def create_card():
 
 @app.route('/cards')
 def show_cards():
-    cards = connectToMySQL("card_app_db_test").query_db("SELECT * FROM cards;")
+    cards = connectToMySQL("card_app_db_test").query_db(
+        "SELECT cards.id, cards.name, card_types.name as type, value from cards JOIN card_types ON cards.type = card_types.id;")
     return render_template('cards.html', cards=cards)
 
 
