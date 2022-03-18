@@ -6,9 +6,10 @@ from card_app.config.mysqlconnection import connectToMySQL, queryMySQL
 
 @app.route('/')
 def index():
+    error = None
     if session:
         print(session)
-    return render_template('index.html')
+    return render_template('index.html', error=error)
 
 
 @app.route('/cards/new')
@@ -18,13 +19,16 @@ def new_card():
 
 @app.route('/cards/create', methods=['POST'])
 def create_card():
+    if not Card.validate_card(request.form):
+        return redirect('/cards/new')
     Card.create_card(request.form)
     return redirect('/cards')
 
 
 @app.route('/cards')
 def show_cards():
-    cards = connectToMySQL("card_app_db_test").query_db("SELECT * FROM cards;")
+    cards = connectToMySQL("card_app_db_test").query_db(
+        "SELECT cards.id, cards.name, card_types.name as type, value from cards JOIN card_types ON cards.type = card_types.id;")
     return render_template('cards.html', cards=cards)
 
 
