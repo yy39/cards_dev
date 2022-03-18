@@ -25,17 +25,26 @@
         <h1>Create a Card</h1>
         <form class="d-flex flex-column" action="/cards/create" method="post">
             <label class="form-label" for="name">Name</label>
-            <input class="form-control" type="text" name="name">
+            <input class="form-control" type="text" name="name" required>
             <label class="form-label" for="type">Type</label>
-            <select class="form-select" name="type">
+            <select class="form-select" name="type" required>
                 <option value="1">One</option>
             </select>
             <label class="form-label" for="value">Value</label>
-            <input class="form-control" type="text" name="value">
+            <input class="form-control" type="text" name="value" required>
             <div class="my-2">
                 <input class="btn btn-primary" type="submit" value="Create">
             </div>
         </form>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class=flashes>
+            {% for message in messages %}
+            <li class="text-decoration-none">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
     </div>
 </body>
 
