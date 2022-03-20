@@ -22,6 +22,13 @@ class Card:
             return cls(card[0])
 
     @staticmethod
+    def get_all():
+        query = 'SELECT cards.id, cards.name, card_types.name as type, value from cards JOIN card_types ON cards.type = card_types.id;'
+        all_cards = connectToMySQL("card_app_db_test").query_db(query)
+        print(all_cards)
+        return all_cards
+
+    @staticmethod
     def validate_card(card):
         is_valid = True
         if len(card['name']) < 3:

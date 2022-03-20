@@ -29,7 +29,9 @@
             <input class="form-control" type="text" name="name" required>
             <label class="form-label" for="type">Type</label>
             <select class="form-select" name="type" required>
-                <option value="1">One</option>
+                {% for type in types %}
+                <option value="{{ type['id'] }}">{{ type['name'] }}</option>
+                {% endfor %}
             </select>
             <label class="form-label" for="value">Value</label>
             <input class="form-control" type="text" name="value" required>
