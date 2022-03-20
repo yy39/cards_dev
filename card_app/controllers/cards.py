@@ -1,6 +1,7 @@
 from card_app import app
 from flask import render_template, redirect, request, session
 from card_app.models.card import Card
+from card_app.models.card_type import CardType
 from card_app.config.mysqlconnection import connectToMySQL, queryMySQL
 
 
@@ -14,7 +15,8 @@ def index():
 
 @app.route('/cards/new')
 def new_card():
-    return render_template('new_card.html')
+    all_types = CardType.get_all()
+    return render_template('new_card.html', types=all_types)
 
 
 @app.route('/cards/create', methods=['POST'])
@@ -27,12 +29,11 @@ def create_card():
 
 @app.route('/cards')
 def show_cards():
-    cards = connectToMySQL("card_app_db_test").query_db(
-        "SELECT cards.id, cards.name, card_types.name as type, value from cards JOIN card_types ON cards.type = card_types.id;")
+    cards = Card.get_all()
     return render_template('cards.html', cards=cards)
 
 
 @app.route('/cards/<int:id>')
 def show_card(id):
-    card = Card.get_card({"id": id})
+    card = Card.get_card({'id': id})
     return render_template('show_card.html', card=card)
