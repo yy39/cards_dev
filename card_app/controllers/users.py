@@ -20,3 +20,8 @@ def create_user():
         return redirect('/users/new')
     User.create(request.form)
     return redirect('/users')
+
+
+@app.route('/login')
+def login_page():
+    return render_template('login.html')

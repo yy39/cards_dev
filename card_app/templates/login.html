@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
 </head>
 
 <body>
@@ -24,34 +24,21 @@
         </div>
     </header>
     <div class="container">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul class="list-group">
-            {% for message in messages %}
-            <li class="list-group-item border-success text-success">{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
-        <h1>Viewing Users</h1>
-        <table class="table table-sm table-hover">
-            <thead>
-                <tr>
-                    <th>Username</th>
-                    <th>Displayname</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for user in users %}
-                <tr>
-                    <td>{{ user.username }}</td>
-                    <td>{{ user.display_name }}</td>
-                    <td>{{ user.email }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <h1>Login</h1>
+        <form action="">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    name="username-or-email" required>
+                <label for="floatingInput">Username or Email</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    name="password" required>
+                <label for="floatingInput">Password</label>
+            </div>
+            <input type="submit" value="Login" class="btn btn-primary">
+        </form>
+        <a class="btn btn-primary my-2" href="/users/new">Create New User</a>
     </div>
 </body>
 
