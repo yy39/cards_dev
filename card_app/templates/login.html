@@ -23,22 +23,27 @@
             </div>
         </div>
     </header>
-    <div class="container">
-        <h1>Login</h1>
-        <form action="">
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
-                    name="username-or-email" required>
-                <label for="floatingInput">Username or Email</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="floatingInput" placeholder="name@example.com"
-                    name="password" required>
-                <label for="floatingInput">Password</label>
-            </div>
-            <input type="submit" value="Login" class="btn btn-primary">
-        </form>
-        <a class="btn btn-primary my-2" href="/users/new">Create New User</a>
+    <div class="container d-flex">
+        <div class="container">
+            <h1>Login</h1>
+            <form action="">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                        name="username-or-email" required>
+                    <label for="floatingInput">Username or Email</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingInput" placeholder="name@example.com"
+                        name="password" required>
+                    <label for="floatingInput">Password</label>
+                </div>
+                <input type="submit" value="Login" class="btn btn-primary">
+            </form>
+        </div>
+        <div class="container">
+            <p>No Account? </p>
+            <a class="btn btn-primary my-2" href="/users/new">Create New User</a>
+        </div>
     </div>
 </body>
 
